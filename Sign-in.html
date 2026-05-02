@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>MathSOL</title>
+</head>
+<body>
+   <script>function login() {
+    var user = document.getElementById("username").value;
+    var pass = document.getElementById("password").value;
+
+    var storedPass = localStorage.getItem(user);
+
+    if (storedPass === pass) {
+        localStorage.setItem("user", user);
+        window.location.href = "class.html";
+    } else {
+        alert("Invalid login!");
+    }
+    var devs = ["aryan", "admin", "dev123"];
+
+if (devs.includes(user)) {
+    localStorage.setItem("role", "dev");
+}
+if (localStorage.getItem("role") === "dev") {
+    console.log("Dev Mode Activated");
+    // show extra buttons here
+}
+}</script>
+</body>
+</html>

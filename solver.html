@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Solver - MathSOL</title>
+    <style>
+    body {
+        background: linear-gradient(to right, #4facfe, #00f2fe);
+        font-family: Arial, sans-serif;
+        text-align: center;
+        color: white;
+    }
+
+    h1, h2, h3 {
+        margin-top: 20px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 10px;
+        background-color: #ffffff;
+        color: #333;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background-color: #333;
+        color: white;
+    }
+
+    input {
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        width: 200px;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+
+    <h2 id="welcome"></h2>
+    <h3 id="subject"></h3>
+
+    <h1>Enter Your Question</h1>
+
+    <input type="text" id="question" placeholder="Enter question like 2+2"><br><br>
+
+    <button onclick="solve()">Solve</button>
+
+    <h2 id="result"></h2>
+
+    <button onclick="goBack()">⬅ Back</button>
+    <button onclick="logout()">Logout</button>
+
+    <script>
+        // Show username
+        var user = localStorage.getItem("user");
+        if (user) {
+            document.getElementById("welcome").innerText = "Welcome " + user;
+        }
+
+        // Show selected subject
+        var subject = localStorage.getItem("subject");
+        if (subject) {
+            document.getElementById("subject").innerText = "Subject: " + subject;
+        }
+
+        function solve() {
+            var q = document.getElementById("question").value;
+
+            try {
+                // Only works for math expressions
+                var answer = eval(q);
+                document.getElementById("result").innerText = "Answer: " + answer;
+            } catch {
+                document.getElementById("result").innerText = "Invalid Question";
+            }
+        }
+
+        function goBack() {
+            window.location.href = "subject.html";
+        }
+
+        function logout() {
+            localStorage.removeItem("user");
+            window.location.href = "index.html";
+        }
+    </script>
+
+</body>
+</html>

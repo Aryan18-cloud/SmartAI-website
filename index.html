@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title> MathSOL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2> Welcome to MathSOL</h2>
+    <P>Your Smart AI patner Math Solver</P>
+
+<body>
+
+    <h1>Login to MathSOL</h1>
+
+    <input type="text" id="username" placeholder="Enter Username"><br><br>
+    <input type="password" id="password" placeholder="Enter Password"><br><br>
+
+    <button onclick="login()">Login</button>
+
+    <script>
+        function login() {
+            var username = document.getElementById("username").value;
+            var password = document.getElementById("password").value;
+
+            if (username === "" || password === "") {
+                alert("Please enter username and password");
+            } else {
+                localStorage.setItem("user", username);
+                window.location.href = "class.html";
+            }
+        }
+    </script>
+    <P> Made By ARYAN RAJ</P>
+
+</body>
+</html>

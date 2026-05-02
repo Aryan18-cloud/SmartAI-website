@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Subject - MathSOL</title>
+    <style>
+    body {
+        background: linear-gradient(to right, #4facfe, #00f2fe);
+        font-family: Arial, sans-serif;
+        text-align: center;
+        color: white;
+    }
+
+    h1, h2, h3 {
+        margin-top: 20px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 10px;
+        background-color: #ffffff;
+        color: #333;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    button:hover {
+        background-color: #333;
+        color: white;
+    }
+
+    input {
+        padding: 10px;
+        border-radius: 10px;
+        border: none;
+        width: 200px;
+        text-align: center;
+    }
+</style>
+</head>
+<body>
+
+    <h2 id="welcome"></h2>
+
+    <h1>Select Subject</h1>
+
+    <button onclick="goToSolver('Math')">Math</button><br><br>
+    
+    <button onclick="goBack()">⬅ Back</button>
+    <button onclick="logout()">Logout</button>
+
+    <script>
+        // Show username
+        var user = localStorage.getItem("user");
+
+        if (user) {
+            document.getElementById("welcome").innerText = "Welcome " + user;
+        }
+
+        // Save subject and go to solver
+        function goToSolver(subject) {
+            localStorage.setItem("subject", subject);
+            window.location.href = "solver.html";
+        }
+
+        function goBack() {
+            window.location.href = "class.html";
+        }
+
+        function logout() {
+            localStorage.removeItem("user");
+            window.location.href = "index.html";
+        }
+    </script>
+
+</body>
+</html>
